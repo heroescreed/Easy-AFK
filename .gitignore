@@ -26,3 +26,7 @@ replay_pid*
 # IDE Files and Folders
 
 .idea
+
+# Build directories
+
+easy-afk/target
