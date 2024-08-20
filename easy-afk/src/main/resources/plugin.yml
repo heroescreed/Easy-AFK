@@ -1,0 +1,4 @@
+main: com.heroescreed.App
+name: Easy-AFK
+version: 1.0.0
+load: POSTWORLD
