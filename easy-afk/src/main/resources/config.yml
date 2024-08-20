@@ -1,5 +1,8 @@
 messages:
-  afkset: "You are now afk"
-  afkremoved: "You are no longer afk"
-  playerafk: "%playername% is currently afk"
-  generalError: "&cAn error occurred while performing the command"
+  afkset: "&8You are now afk"
+  afkremoved: "&8You are no longer afk"
+  playerafk: "&8%playername% is currently afk"
+  generalError: "&4An error occurred while performing the command"
+  notPlayer: "&4You are not a player!"
+  noPermission: "&4You don't have required permissions to perform this action!"
+  wrongUsage: "&4Wrong usage!\nUsage: &l%usage%"
