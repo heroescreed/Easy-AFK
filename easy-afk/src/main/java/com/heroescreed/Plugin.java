@@ -10,6 +10,8 @@ public class Plugin extends JavaPlugin{
 
     @Getter
     private static Plugin instance;
+    @Getter
+    private static ConfigManager configManager;
 
     public Plugin(){
         instance = this;
@@ -17,7 +19,9 @@ public class Plugin extends JavaPlugin{
 
     @Override
     public void onEnable(){
+        saveDefaultConfig();
 
+        configManager = new ConfigManager(this);
 
         getLogger().info("Easy AFK has been enabled!");
     }

@@ -1,0 +1,5 @@
+messages:
+  afkset: "You are now afk"
+  afkremoved: "You are no longer afk"
+  playerafk: "%playername% is currently afk"
+  generalError: "&cAn error occurred while performing the command"
