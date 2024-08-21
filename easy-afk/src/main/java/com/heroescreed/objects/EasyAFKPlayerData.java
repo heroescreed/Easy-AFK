@@ -57,8 +57,7 @@ public class EasyAFKPlayerData {
             if(afk) return;
             if(Bukkit.getOfflinePlayer(uuid).isOnline()){
                 long afklength = (System.currentTimeMillis() - lastinteraction) / 1000;
-                // Refactor to make this customisable
-                if(afklength >= plugin.getConfigManager().getOption("afklength")){
+                if(afklength >= plugin.getConfigManager().getOption("afklength") && plugin.getConfigManager().getSetting("autoafk")){
                     afk = true;
                     reason = "AFK";
                     Bukkit.getPlayer(uuid).sendMessage(plugin.getConfigManager().getMessage("afkautoset"));
