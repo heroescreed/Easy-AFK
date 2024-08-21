@@ -32,9 +32,12 @@ public class Plugin extends JavaPlugin{
         saveDefaultConfig();
 
         configManager = new ConfigManager(this);
+        afkManager = new AfkManager(this);
         subCommandManager = new SubCommandManager(this);
 
         getCommand("afk").setExecutor(new afk(this));
+
+        Bukkit.getPluginManager().registerEvents(new PlayerListeners(this), this);
 
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, getAfkChecks(), 20, 20);
 
