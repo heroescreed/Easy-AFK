@@ -1,6 +1,7 @@
 package com.heroescreed;
 
 import com.heroescreed.commands.afk;
+import com.heroescreed.managers.AfkManager;
 import com.heroescreed.managers.ConfigManager;
 
 import com.heroescreed.managers.SubCommandManager;
@@ -14,6 +15,8 @@ public class Plugin extends JavaPlugin{
     private static Plugin instance;
     @Getter
     private static ConfigManager configManager;
+    @Getter
+    private static AfkManager afkManager;
     @Getter
     private static SubCommandManager subCommandManager;
 
