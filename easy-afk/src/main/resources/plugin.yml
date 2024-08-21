@@ -1,4 +1,4 @@
-main: com.heroescreed.App
+main: com.heroescreed.Plugin
 name: easyafk
 prefix: Easy AFK
 version: 1.0.0
