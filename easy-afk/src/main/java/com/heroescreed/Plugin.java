@@ -12,6 +12,8 @@ public class Plugin extends JavaPlugin{
     private static Plugin instance;
     @Getter
     private static ConfigManager configManager;
+    @Getter
+    private static SubCommandManager subCommandManager;
 
     public Plugin(){
         instance = this;
@@ -22,6 +24,7 @@ public class Plugin extends JavaPlugin{
         saveDefaultConfig();
 
         configManager = new ConfigManager(this);
+        subCommandManager = new SubCommandManager(this);
 
         getLogger().info("Easy AFK has been enabled!");
     }
