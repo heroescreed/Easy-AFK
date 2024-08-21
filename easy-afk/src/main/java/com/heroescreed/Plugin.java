@@ -1,7 +1,9 @@
 package com.heroescreed;
 
+import com.heroescreed.commands.afk;
 import com.heroescreed.managers.ConfigManager;
 
+import com.heroescreed.managers.SubCommandManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import lombok.Getter;
@@ -25,6 +27,8 @@ public class Plugin extends JavaPlugin{
 
         configManager = new ConfigManager(this);
         subCommandManager = new SubCommandManager(this);
+
+        getCommand("afk").setExecutor(new afk(this));
 
         getLogger().info("Easy AFK has been enabled!");
     }
