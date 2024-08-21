@@ -8,3 +8,16 @@ messages:
   wrongUsage: "&cWrong usage!\nUsage: %usage%"
   afkset: "&7You have set your afk: %reason%"
   afklist: "&f%playername% is currently afk: %reason%"
+
+  settings:
+    autoafk: true
+    removeafkonmove: true
+    removeafkonchat: true
+    removeafkonattack: true
+    removeafkoncommand: true
+    removeafkoninteract: true
+    removeafkonblockplace: true
+    removeafkonblockbreak: true
+
+  options:
+    afklength: 10
