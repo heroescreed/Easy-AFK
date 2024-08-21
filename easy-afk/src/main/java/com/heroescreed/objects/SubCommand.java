@@ -1,4 +1,4 @@
-package com.heroescreed.commands;
+package com.heroescreed.objects;
 
 import com.heroescreed.Plugin;
 
@@ -17,4 +17,6 @@ public abstract class SubCommand{
     public abstract String getUsage();
 
     public abstract String getSubCommand();
+
+    public abstract String getDescription();
 }
