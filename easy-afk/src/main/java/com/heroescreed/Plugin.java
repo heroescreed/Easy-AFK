@@ -1,9 +1,9 @@
 package com.heroescreed;
 
 import com.heroescreed.commands.afk;
+import com.heroescreed.listeners.PlayerListeners;
 import com.heroescreed.managers.AfkManager;
 import com.heroescreed.managers.ConfigManager;
-
 import com.heroescreed.managers.SubCommandManager;
 import com.heroescreed.objects.EasyAFKPlayerData;
 
