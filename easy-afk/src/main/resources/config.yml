@@ -19,5 +19,12 @@ settings:
   removeafkonblockplace: true
   removeafkonblockbreak: true
 
+  immunetopvpwhileafk: true
+  immunetopvewhileafk: false
+  vanishwhenafk: false
+  pickupitemswhileafk: true
+  collideablewhileafk: false
+  starvewhileafk: false
+
 options:
   afklength: 10
