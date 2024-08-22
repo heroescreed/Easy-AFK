@@ -16,8 +16,6 @@ import org.bukkit.event.player.*;
 public class PlayerListeners implements Listener {
     private final Plugin plugin;
 
-    // 22/08/24 - Added config options has stopped afk removal
-
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         plugin.getAfkManager().createPlayerData(event.getPlayer().getUniqueId());
