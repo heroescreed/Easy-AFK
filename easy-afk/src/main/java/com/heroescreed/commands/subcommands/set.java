@@ -14,11 +14,11 @@ public class set extends SubCommand {
     public boolean onCommand(Player player, String[] args){
         String reason = "AFK";
         if (args.length >= 2) {
-            reason = "";
+            StringBuilder reasonbuilder = new StringBuilder();
             for (int i = 1; i < args.length; i++) {
-                reason = reason + args[i] + " ";
+                reasonbuilder.append(args[i]).append(" ");
             }
-            reason.trim();
+            reason = reasonbuilder.toString().trim();
         }
 
         plugin.getAfkManager().setPlayerAFK(player.getUniqueId(), reason);

@@ -21,13 +21,13 @@ public class list extends SubCommand {
             return true;
         }
 
-        List<String> helpmessages = new ArrayList<>();
+        List<String> messages = new ArrayList<>();
 
         plugin.getAfkManager().getPlayerdatamap().forEach((key, value) -> {
-            if(value.isAfk()) helpmessages.add(plugin.getConfigManager().getMessage("afklist").replace("%playername%", Bukkit.getOfflinePlayer(key).getName()).replace("%reason%", value.getReason()));
+            if(value.isAfk()) messages.add(plugin.getConfigManager().getMessage("afklist").replace("%playername%", Bukkit.getOfflinePlayer(key).getName()).replace("%reason%", value.getReason()));
         });
 
-        player.sendMessage(String.join("\n", helpmessages));
+        player.sendMessage(String.join("\n", messages));
 
         return true;
     }
