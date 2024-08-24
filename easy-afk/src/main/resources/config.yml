@@ -8,6 +8,9 @@ messages:
   wrongUsage: "&cWrong usage!\nUsage: %usage%"
   afkset: "&7You have set your afk: %reason%"
   afklist: "&f%playername% is currently afk: %reason%"
+  playerlisttag: "&7&o[AFK]"
+  playergoneafk: "&7%playername% is now afk: %reason%"
+  noafkplayers: "&cThere are no afk players right now!"
 
 settings:
   autoafk: true
@@ -21,10 +24,11 @@ settings:
 
   immunetopvpwhileafk: true
   immunetopvewhileafk: false
+  hungerwhileafk: false
   vanishwhenafk: false
   pickupitemswhileafk: true
-  collideablewhileafk: false
-  starvewhileafk: false
+
+  broadcastafk: true
 
 options:
   afklength: 10
