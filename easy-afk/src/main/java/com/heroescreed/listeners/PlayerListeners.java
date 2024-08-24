@@ -4,6 +4,7 @@ import com.heroescreed.Plugin;
 
 import lombok.RequiredArgsConstructor;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,9 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 public class PlayerListeners implements Listener {
@@ -30,6 +34,16 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event){
         if(plugin.getConfigManager().getSetting("removeafkonchat")) plugin.getAfkManager().onPlayerInteraction(event.getPlayer().getUniqueId());
+
+        List<String> messages = new ArrayList<>();
+
+        plugin.getAfkManager().getPlayerdatamap().forEach((key, value) -> {
+            if(event.getMessage().contains(Bukkit.getOfflinePlayer(key).getName())) {
+                if(value.isAfk()) messages.add(plugin.getConfigManager().getMessage("afklist").replace("%playername%", Bukkit.getOfflinePlayer(key).getName()).replace("%reason%", value.getReason()));
+            }
+        });
+
+        if(!messages.isEmpty()) event.getPlayer().sendMessage(String.join("\n", messages));
     }
 
     @EventHandler
