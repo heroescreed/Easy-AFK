@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.*;
 
 @RequiredArgsConstructor
@@ -65,6 +66,11 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPlayerBlockBreak(BlockBreakEvent event) {
         if (plugin.getConfigManager().getSetting("removeafkonblockbreak")) plugin.getAfkManager().onPlayerInteraction(event.getPlayer().getUniqueId());
+    }
+
+    @EventHandler
+    public void onHungerChange(FoodLevelChangeEvent event){
+        if(event.getEntity() instanceof Player && !plugin.getConfigManager().getSetting("hungerwhileafk") && plugin.getAfkManager().isPlayerAfk(event.getEntity().getUniqueId())) event.setCancelled(true);
     }
 
 }
