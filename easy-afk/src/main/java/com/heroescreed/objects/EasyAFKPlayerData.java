@@ -30,6 +30,12 @@ public class EasyAFKPlayerData {
                 plugin.getAfkManager().removePlayerData(uuid);
                 return;
             }
+            player.setVisibleByDefault(true);
+            player.setCanPickupItems(true);
+            player.setInvulnerable(false);
+
+            if(player.getScoreboard().getEntryTeam(player.getName()) != null) player.setPlayerListName(player.getScoreboard().getEntryTeam(player.getName()).getColor() + player.getName());
+            else player.setPlayerListName(player.getName());
 
             player.sendMessage(plugin.getConfigManager().getMessage("afkremoved"));
         }
