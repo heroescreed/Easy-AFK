@@ -16,18 +16,14 @@ public class list extends SubCommand {
 
     @Override
     public boolean onCommand(Player player, String[] args){
-        if(plugin.getAfkManager().getPlayerdatamap().isEmpty()){
-            player.sendMessage(plugin.getConfigManager().getMessage("noafkplayers"));
-            return true;
-        }
-
         List<String> messages = new ArrayList<>();
 
         plugin.getAfkManager().getPlayerdatamap().forEach((key, value) -> {
             if(value.isAfk()) messages.add(plugin.getConfigManager().getMessage("afklist").replace("%playername%", Bukkit.getOfflinePlayer(key).getName()).replace("%reason%", value.getReason()));
         });
 
-        player.sendMessage(String.join("\n", messages));
+        if(messages.isEmpty()) player.sendMessage(plugin.getConfigManager().getMessage("noafkplayers"));
+        else player.sendMessage(String.join("\n", messages));
 
         return true;
     }
