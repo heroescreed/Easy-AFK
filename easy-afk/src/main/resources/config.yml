@@ -31,4 +31,4 @@ settings:
   broadcastafk: true
 
 options:
-  afklength: 10
+  afklength: 30
