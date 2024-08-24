@@ -34,18 +34,16 @@ public class PlayerListeners implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent event){
-        // Add distance check - 21/08/24
-        if(plugin.getConfigManager().getSetting("removeafkonmove")) {
-            plugin.getAfkManager().onPlayerInteraction(event.getPlayer().getUniqueId());
-        }
+        if(plugin.getConfigManager().getSetting("removeafkonmove")) plugin.getAfkManager().onPlayerInteraction(event.getPlayer().getUniqueId());
     }
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
-        // Make afk players immune to damage from other players - 22/08/24
-        if(event.getDamager() instanceof Player player && plugin.getConfigManager().getSetting("removeafkonattack")) {
-            plugin.getAfkManager().onPlayerInteraction(player.getUniqueId());
+        if(event.getDamager() instanceof Player player) {
+            if(plugin.getConfigManager().getSetting("removeafkonattack")) plugin.getAfkManager().onPlayerInteraction(player.getUniqueId());
+            if(plugin.getConfigManager().getSetting("immunetopvpwhileafk") && plugin.getAfkManager().isPlayerAfk(event.getEntity().getUniqueId())) event.setCancelled(true);
         }
+        if(!(event.getDamager() instanceof Player player) && plugin.getConfigManager().getSetting("immunetopvewhileafk") && plugin.getAfkManager().isPlayerAfk(event.getEntity().getUniqueId())) event.setCancelled(true);
     }
 
     @EventHandler
