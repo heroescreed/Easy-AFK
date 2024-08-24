@@ -48,7 +48,18 @@ public class EasyAFKPlayerData {
             return;
         }
 
-        player.sendMessage(plugin.getConfigManager().getMessage("afkset").replace("%reason%", reason));
+        if(plugin.getConfigManager().getSetting("vanishwhenafk")) player.setVisibleByDefault(false);
+        if(!plugin.getConfigManager().getSetting("pickupitemswhileafk")) player.setCanPickupItems(false);
+        if(plugin.getConfigManager().getSetting("immunetopvpwhileafk") && plugin.getConfigManager().getSetting("immunetopvewhileafk")) player.setInvulnerable(true);
+
+        if(player.getScoreboard().getEntryTeam(player.getName()) != null) player.setPlayerListName(player.getScoreboard().getEntryTeam(player.getName()).getColor() + player.getName() + " " + plugin.getConfigManager().getMessage("playerlisttag"));
+        else player.setPlayerListName(player.getName() + " " + plugin.getConfigManager().getMessage("playerlisttag"));
+
+        if(plugin.getConfigManager().getSetting("broadcastafk")){
+            for(Player play: plugin.getServer().getOnlinePlayers()){
+                if(play != player) player.sendMessage(plugin.getConfigManager().getMessage("playergoneafk").replace("%playername%", player.getName()).replace("%reason%", reason));
+            }
+        }
     }
 
     public Runnable getafkCheck() {
@@ -58,7 +69,8 @@ public class EasyAFKPlayerData {
                 long afklength = (System.currentTimeMillis() - lastinteraction) / 1000;
                 if(afklength >= plugin.getConfigManager().getOption("afklength") && plugin.getConfigManager().getSetting("autoafk")){
                     afk = true;
-                    reason = "AFK";
+                    setPlayerAfk("AFK");
+
                     Bukkit.getPlayer(uuid).sendMessage(plugin.getConfigManager().getMessage("afkautoset"));
                 }
             } else {
