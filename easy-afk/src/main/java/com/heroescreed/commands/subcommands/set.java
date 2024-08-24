@@ -22,6 +22,7 @@ public class set extends SubCommand {
         }
 
         plugin.getAfkManager().setPlayerAFK(player.getUniqueId(), reason);
+        player.sendMessage(plugin.getConfigManager().getMessage("afkset").replace("%reason%", reason));
 
         return true;
     }

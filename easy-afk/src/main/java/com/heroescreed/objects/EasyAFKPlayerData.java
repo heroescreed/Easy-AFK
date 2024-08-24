@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -74,7 +75,6 @@ public class EasyAFKPlayerData {
             if(Bukkit.getOfflinePlayer(uuid).isOnline()){
                 long afklength = (System.currentTimeMillis() - lastinteraction) / 1000;
                 if(afklength >= plugin.getConfigManager().getOption("afklength") && plugin.getConfigManager().getSetting("autoafk")){
-                    afk = true;
                     setPlayerAfk("AFK");
 
                     Bukkit.getPlayer(uuid).sendMessage(plugin.getConfigManager().getMessage("afkautoset"));
