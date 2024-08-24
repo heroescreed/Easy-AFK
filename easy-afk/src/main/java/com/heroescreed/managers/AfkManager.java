@@ -37,4 +37,8 @@ public class AfkManager {
     public EasyAFKPlayerData getPlayerData(UUID uuid){
         return playerdatamap.get(uuid);
     }
+
+    public boolean isPlayerAfk(UUID uuid){
+        return playerdatamap.get(uuid).isAfk();
+    }
 }
