@@ -38,6 +38,12 @@ public class EasyAFKPlayerData {
             if(player.getScoreboard().getEntryTeam(player.getName()) != null) player.setPlayerListName(player.getScoreboard().getEntryTeam(player.getName()).getColor() + player.getName());
             else player.setPlayerListName(player.getName());
 
+            if(plugin.getConfigManager().getSetting("broadcastafk")){
+                for(Player play: plugin.getServer().getOnlinePlayers()){
+                    if(play != player) play.sendMessage(plugin.getConfigManager().getMessage("playernotafk").replace("%playername%", player.getName()));
+                }
+            }
+
             player.sendMessage(plugin.getConfigManager().getMessage("afkremoved"));
         }
 
@@ -64,7 +70,7 @@ public class EasyAFKPlayerData {
 
         if(plugin.getConfigManager().getSetting("broadcastafk")){
             for(Player play: plugin.getServer().getOnlinePlayers()){
-                if(play != player) player.sendMessage(plugin.getConfigManager().getMessage("playergoneafk").replace("%playername%", player.getName()).replace("%reason%", reason));
+                if(play != player) play.sendMessage(plugin.getConfigManager().getMessage("playergoneafk").replace("%playername%", player.getName()).replace("%reason%", reason));
             }
         }
     }
