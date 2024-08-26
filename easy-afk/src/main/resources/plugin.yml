@@ -1,0 +1,28 @@
+main: com.heroescreed.Plugin
+name: easyafk
+prefix: Easy AFK
+version: 1.0.0
+load: POSTWORLD
+commands:
+  afk:
+    description: Opens the Easy AFK help menu
+    usage: /afk [set | help | list]
+    permission-message: You do not have permission to use this command.
+    permission: easyafk.afk
+permissions:
+  easyafk.*:
+    description: Grants all afk command permissions
+    default: op
+    children:
+      easyafk.afk: true
+      easyafk.afk.set: true
+      easyafk.afk.list: true
+  easyafk.afk:
+    description: Allows /afk commands
+    default: true
+  easyafk.afk.set:
+    description: Allows a user to set their own afk, with a custom message
+    default: true
+  easyafk.afk.list:
+    description: Allows a user to view a list of all afk players with their messages
+    default: op

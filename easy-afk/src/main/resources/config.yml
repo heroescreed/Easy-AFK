@@ -1,0 +1,35 @@
+messages:
+  afkautoset: "&7You are now afk"
+  afkremoved: "&7You are no longer afk"
+  playerafk: "&7%playername% is currently afk: %reason%"
+  generalError: "&cAn error occurred while performing the command"
+  notPlayer: "&cYou are not a player!"
+  noPermission: "&cYou don't have required permissions to perform this action!"
+  wrongUsage: "&cWrong usage!\nUsage: %usage%"
+  afkset: "&7You have set your afk: %reason%"
+  afklist: "&7%playername% is currently afk: %reason%"
+  playerlisttag: "&7&o[AFK]"
+  playergoneafk: "&7%playername% is now afk: %reason%"
+  noafkplayers: "&cThere are no afk players right now!"
+  playernotafk: "&7%playername% is no longer afk"
+
+settings:
+  autoafk: true
+  removeafkonmove: true
+  removeafkonchat: true
+  removeafkonattack: true
+  removeafkoncommand: true
+  removeafkoninteract: true
+  removeafkonblockplace: true
+  removeafkonblockbreak: true
+
+  immunetopvpwhileafk: true
+  immunetopvewhileafk: false
+  hungerwhileafk: false
+  vanishwhenafk: false
+  pickupitemswhileafk: true
+
+  broadcastafk: true
+
+options:
+  afklength: 30
